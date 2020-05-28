@@ -98,11 +98,15 @@ static int get_mouse_widget_type (int mouse, int num, TCHAR *name, uae_u32 *code
   return IDEV_WIDGET_NONE;
 }
 
+extern int gmx,gmy;
+
 static void read_mouse (void) 
 {
   if(currprefs.input_tablet > TABLET_OFF) {
     // Mousehack active
     int x, y;
+	x=gmx;
+	y=gmy;
     //SDL_GetMouseState(&x, &y);
 	  setmousestate(0, 0, x, 1);
 	  setmousestate(0, 1, y, 1);
